@@ -39,6 +39,6 @@ public abstract class BaseFragment extends Fragment {
 	public abstract View initView();
 	
 	//初始化数据，由子类实现
-	public abstract View initDtata();
+	public abstract void initDtata();
 
 }

@@ -3,12 +3,27 @@ package com.pokeman.reimuguard.activity;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.pokeman.reimuguard.R;
+import com.pokeman.reimuguard.fragmant.ContentFragment;
+import com.pokeman.reimuguard.fragmant.LeftMenuFragment;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+
+/**
+ * 主页面
+ * @author pokeman
+ *
+ */
 public class MainActivity extends SlidingFragmentActivity {
+	
+
+	private static final String TAG_LEFT_MENU = null;
+	private static final String TAG_CONTENT = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -31,7 +46,28 @@ public class MainActivity extends SlidingFragmentActivity {
         
         //设置侧边栏宽度
 		slidingMenu.setBehindOffset(screenWidth/2);
+		
+		initFragment();
 
 	}
-
+	
+	//初始化fragment
+	private void initFragment() {
+		
+		//获取fragment管理器
+		android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+		
+		//开启事务
+		android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
+		
+		
+		//用fragment替换帧布局
+		transaction.replace(R.id.fl_left_menu, new LeftMenuFragment(),TAG_LEFT_MENU);
+		transaction.replace(R.id.fl_main, new ContentFragment(),TAG_CONTENT);
+		
+		//提交事务
+		transaction.commit();
+		
+		
+	}
 }
