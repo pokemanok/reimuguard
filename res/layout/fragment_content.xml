@@ -4,9 +4,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-<android.support.v4.view.ViewPager
+<com.pokeman.reimuguard.view.NoScrollViewPager
+    android:id="@+id/vp_content"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
     />
+
+  <RadioGroup
+    android:id="@+id/rg_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_tab_bg"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+
+      <RadioButton
+          style="@style/Bottom_Tab_Style"
+          android:id="@+id/rb_home"
+          android:drawableTop="@drawable/tab_home_selector"
+          android:checked="true"
+          android:text="首页"/>
+      <RadioButton
+          style="@style/Bottom_Tab_Style"
+          android:id="@+id/rb_blacklist"
+          
+          android:drawableTop="@drawable/tab_blacklist_selector"
+          android:text="黑名单"/>
+      <RadioButton
+          style="@style/Bottom_Tab_Style"
+          android:id="@+id/rb_process"
+          android:drawableTop="@drawable/tab_process_selector"
+          android:text="进程管理"/>
+      <RadioButton
+          style="@style/Bottom_Tab_Style"
+          android:id="@+id/rb_setting"
+          android:drawableTop="@drawable/tab_setting_selector"
+          android:text="设置"/>
+      <RadioButton
+          style="@style/Bottom_Tab_Style"
+          android:id="@+id/rb_theftproof"
+          android:drawableTop="@drawable/tab_theftproof_selector"
+          android:text="防盗"/>
+
+  </RadioGroup>
+
 </LinearLayout>
