@@ -54,6 +54,7 @@ int id left 0x7f040000
 int id lv_list 0x7f040010
 int id margin 0x7f040002
 int id none 0x7f040004
+int id progress 0x7f040014
 int id rb_blacklist 0x7f04000c
 int id rb_home 0x7f04000b
 int id rb_process 0x7f04000d
@@ -64,7 +65,6 @@ int id right 0x7f040001
 int id rl_root 0x7f040007
 int id selected_view 0x7f040005
 int id slidingmenumain 0x7f040015
-int id textView1 0x7f040014
 int id tv_title 0x7f040016
 int id vp_content 0x7f040009
 int layout activity_main 0x7f030000

@@ -179,6 +179,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int lv_list=0x7f040010;
         public static final int margin=0x7f040002;
         public static final int none=0x7f040004;
+        public static final int progress=0x7f040014;
         public static final int rb_blacklist=0x7f04000c;
         public static final int rb_home=0x7f04000b;
         public static final int rb_process=0x7f04000d;
@@ -189,7 +190,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_root=0x7f040007;
         public static final int selected_view=0x7f040005;
         public static final int slidingmenumain=0x7f040015;
-        public static final int textView1=0x7f040014;
         public static final int tv_title=0x7f040016;
         public static final int vp_content=0x7f040009;
     }
