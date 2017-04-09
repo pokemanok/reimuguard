@@ -24,7 +24,7 @@ public class SelfStatistics extends View {
     //自定义view内部存储数据信息
     private List<Infos> listDatas = new ArrayList<Infos>();
     //默认统计图的颜色配置 如果数据大于4 则颜色轮询
-    private String colorRes[] = new String[]{"#fdb128", "#4a90e2", "#89c732", "#f46950"};
+    private String colorRes[] = new String[]{"#fdb128", "#4a90e2", "#89c732", "#f46950","#bf00bf"};
     private int mPanelWidth;
 
     public SelfStatistics(Context context) {
@@ -66,7 +66,7 @@ public class SelfStatistics extends View {
             //获取圆心的x坐标
             int center = mPanelWidth / 2;
             //圆环的半径
-            int radius = center - 10;
+            int radius = center - 100;
             //消除锯齿
             paint.setAntiAlias(true);
             //给外圈设置样式
@@ -122,13 +122,13 @@ public class SelfStatistics extends View {
         for (int i = 0; i < datas.length; i++) {
             total += datas[i];
         }
-        String totalStr = total + "元";
+        String totalStr = total + "MB";
         paint.setStrokeWidth(2);
         //设置进度扇形的样式
         paint.setStyle(Paint.Style.FILL);
         //设置文字的大小
         paint.setTextSize(35);
-        int widthStr1 = (int) paint.measureText("总资产");
+        int widthStr1 = (int) paint.measureText("总存储空间");
         int widthStr2 = (int) paint.measureText(totalStr);
         paint.setColor(Color.parseColor("#333333"));
         float baseX = center - widthStr1 / 2;
@@ -137,7 +137,7 @@ public class SelfStatistics extends View {
         float fontTotalHeight = fontMetrics.bottom - fontMetrics.top;
         float offY = fontTotalHeight / 2 - fontMetrics.bottom - 30;
         float newY = baseY + offY;
-        canvas.drawText("总资产", baseX, newY, paint);
+        canvas.drawText("总存储空间", baseX, newY, paint);
 
         paint.setColor(Color.parseColor("#fc561f"));
         float baseX1 = center - widthStr2 / 2;

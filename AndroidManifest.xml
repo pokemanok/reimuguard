@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.pokeman.reimuguard.activity.MainActivity"></activity>
+        <activity android:name="com.pokeman.reimuguard.info.DeviceInfo"></activity>
         <service android:name="com.pokeman.reimuguard.service.MarisaWidgets"/>
     </application>
 

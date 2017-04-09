@@ -2,15 +2,21 @@ package com.pokeman.reimuguard.activity.base.implement;
 
 import android.R.string;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+
 import android.os.Environment;
 import android.text.format.Formatter;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.base.BasePager;
-import com.pokeman.reimuguard.info.GetDeviceInfo;
+import com.pokeman.reimuguard.info.DeviceInfo;
 import com.pokeman.reimuguard.view.SelfStatistics;
 
 /**
@@ -22,11 +28,11 @@ import com.pokeman.reimuguard.view.SelfStatistics;
 public class HomePager extends BasePager {
 
 	private View mview;
-
+	
 	private SelfStatistics selfStatistics;
 	
-	float appSpace[]=new float[2];
-
+	float Space[]=new float[5];
+	
 	public HomePager(Activity activity) {
 		super(activity);
 		// TODO Auto-generated constructor stub
@@ -38,13 +44,12 @@ public class HomePager extends BasePager {
 
 		mview = View.inflate(mActivity, R.layout.pager_home, null);
 		
-		appSpace = GetDeviceInfo.getAppSpace(mActivity);
+		Space = DeviceInfo.getSpace(mActivity);
 		
-
 		// 加入圆形统计图
 		selfStatistics = (SelfStatistics) mview.findViewById(R.id.progress);
-		//1 SD卡剩余可用空间，2 内置存储剩余可用空间，3 用户应用占用的空间，4 系统应用占用的空间
-		float datas[] = new float[] {sd_freeSpace_float, rom_freeSpace_float, appSpace[0], appSpace[1] };
+		//0 SD卡剩余可用空间，1 内置存储剩余可用空间，2 用户应用占用的空间，3 系统应用占用的空间,4 其他文件占用的空间
+		float datas[] = new float[] {Space[0], Space[1], Space[2], Space[3],Space[4]};
 		selfStatistics.setDatas(datas);
 		selfStatistics.startDraw();
 
@@ -56,22 +61,24 @@ public class HomePager extends BasePager {
 
 		// 隐藏菜单按钮
 		btnMenu.setVisibility(View.GONE);
+		
+		Button button = (Button) mview.findViewById(R.id.button1);
+		button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				//跳转到设备信息界面
+				Activity currentActivity = (Activity) v.getContext();
+				Intent intent = new Intent(currentActivity, DeviceInfo.class); 
+				currentActivity.startActivity(intent);
+							
+			}
+		});
+			
 	}
 
-	    // 获取sd卡存储可用空间
-		long sd_freeSpace_path = Environment.getExternalStorageDirectory().getFreeSpace();
-		//String sd_freeSpace = Formatter.formatFileSize(mActivity,sd_freeSpace_path);
-		
-		
-		//将byte转换成MB
-		Float sd_freeSpace_float = (float) (sd_freeSpace_path/1048576);
-
-	    // 获取内部存储可用空间
-		long rom_freeSpace_path = Environment.getDataDirectory().getFreeSpace();
-		//String rom_freeSpace = Formatter.formatFileSize(mActivity,rom_freeSpace_path);
-		
-		//将byte转换成MB
-		Float rom_freeSpace_float = (float) (rom_freeSpace_path/1048576);
+	   
 		
 		
 
