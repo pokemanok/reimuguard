@@ -9,7 +9,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
 import com.pokeman.reimuguard.activity.base.BasePager;
-import com.pokeman.reimuguard.activity.base.implement.BlackListPager;
+import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
 import com.pokeman.reimuguard.activity.base.implement.HomePager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;

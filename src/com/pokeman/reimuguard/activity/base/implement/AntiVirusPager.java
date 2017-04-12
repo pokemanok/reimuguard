@@ -13,9 +13,9 @@ import com.pokeman.reimuguard.activity.base.BasePager;
  * @author pokeman
  *
  */
-public class BlackListPager extends BasePager {
+public class AntiVirusPager extends BasePager {
 
-	public BlackListPager(Activity activity) {
+	public AntiVirusPager(Activity activity) {
 		super(activity);
 		// TODO Auto-generated constructor stub
 	}

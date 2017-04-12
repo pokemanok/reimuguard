@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.base.BasePager;
-import com.pokeman.reimuguard.activity.base.implement.BlackListPager;
+import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
 import com.pokeman.reimuguard.activity.base.implement.HomePager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;
@@ -51,7 +51,7 @@ public class ContentFragment extends BaseFragment {
 		mPagers.add(new HomePager(mActivity));
 		mPagers.add(new TheftProofPager(mActivity));
 		mPagers.add(new ProcessManagerPager(mActivity));
-		mPagers.add(new BlackListPager(mActivity));
+		mPagers.add(new AntiVirusPager(mActivity));
 		mPagers.add(new SettingPager(mActivity));
 		
 

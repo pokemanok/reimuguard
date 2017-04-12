@@ -38,6 +38,7 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
     private GLSurfaceView glSurfaceView;
     private StringBuilder sb;
     public String str;
+	private ConfigurationInfo configurationInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,10 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
         textView = (TextView) findViewById(R.id.textView1);
 
         final ActivityManager activityManager =  (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
-        final ConfigurationInfo configurationInfo = activityManager
+        configurationInfo = activityManager
                 .getDeviceConfigurationInfo();
         sb=new StringBuilder();
-        sb.append("GL version:").append(configurationInfo.getGlEsVersion()).append("\n");
-
+        
         textView.setText(sb.toString());
         this.glSurfaceView = new GLSurfaceView(this);
         this.glSurfaceView.setRenderer(this);
@@ -64,9 +64,17 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
     //获取GPU相关信息
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-       sb.append("GPU型号:").append(gl.glGetString(GL10.GL_RENDERER)).append("\n");
+    	sb.append("手机品牌:").append(android.os.Build.BRAND).append("\n");
+    	sb.append("手机型号:").append(android.os.Build.MODEL).append("\n");
+    	sb.append("系统版本:").append(android.os.Build.VERSION.RELEASE).append("\n");
+    	sb.append("系统名称:").append(android.os.Build.DISPLAY).append("\n");
+    	sb.append("CPU型号:").append(android.os.Build.HARDWARE).append("\n");
+    	sb.append("CPU类型:").append(android.os.Build.CPU_ABI).append("\n");
+        sb.append("GPU型号:").append(gl.glGetString(GL10.GL_RENDERER)).append("\n");
         sb.append("GPU制造商:").append( gl.glGetString(GL10.GL_VENDOR)).append("\n");
-        sb.append("OpenGL版本:").append(gl.glGetString(GL10.GL_VERSION)).append("\n");
+        sb.append("OpenGL版本:").append(configurationInfo.getGlEsVersion()).append("\n");
+        sb.append("OpenGL ES版本:").append(gl.glGetString(GL10.GL_VERSION)).append("\n");
+        //分辨率，内存大小
         //sb.append("EXTENSIONS").append(gl.glGetString(GL10.GL_EXTENSIONS));
 
         runOnUiThread(new Runnable() {
@@ -112,7 +120,6 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
  	    // 获取内部存储可用空间
  		rom_freeSpace_path = Environment.getDataDirectory().getFreeSpace();
  		
- 		
  		//将byte转换成MB
  		Float rom_freeSpace_float = (float) (rom_freeSpace_path/1048576);
  		Space[1] = rom_freeSpace_float;
@@ -150,39 +157,6 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
   		return Space;		
   	}
   		
-  	/**
-  	 * 获得cpu名称
-  	 * 
-  	 * @return
-  	 */
-  	public static String getCpuName() {
-  		FileReader fr = null;
-  		BufferedReader br = null;
-  		String text;
-  		
-  		try {
-  			fr = new FileReader("/proc/cpuinfo");
-  			br = new BufferedReader(fr);
-  			text = br.readLine();
-  			String[] array = text.split(":\\s+", 2);
-  			return array[1];
-  		} catch (FileNotFoundException e) {
-  			e.printStackTrace();
-  		} catch (IOException e) {
-  			e.printStackTrace();
-  		} finally {
-  			try {
-  				fr.close();
-  				br.close();
-  			} catch (IOException e) {
-  				// TODO Auto-generated catch block
-  				e.printStackTrace();
-  			}
-
-  		}
-  		return null;
-  	}
-  	
   	/**
   	 * 获得内存大小
   	 * 

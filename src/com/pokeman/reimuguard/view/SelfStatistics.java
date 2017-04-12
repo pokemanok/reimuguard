@@ -82,11 +82,11 @@ public class SelfStatistics extends View {
                 //定义一个RectF类
                 paint.setColor(Color.parseColor(infos.getColor()));
                 RectF rectF = new RectF(center - radius, center - radius, center + radius, center + radius);
-//                RectF rectF1 = new RectF(center - radius + 50, center - radius + 50, center + radius - 50, center + radius - 50);
+                //RectF rectF1 = new RectF(center - radius + 50, center - radius + 50, center + radius - 50, center + radius - 50);
                 //绘制扇形
                 canvas.drawArc(rectF, infos.getStartAngle(), infos.getEndAngle(), true, paint);
             }
-//            画最外层的圈
+            //画最外层的圈
             paint.setColor(Color.WHITE);
             canvas.drawCircle(center, center, radius - 50, paint);
 
@@ -108,7 +108,9 @@ public class SelfStatistics extends View {
         } else if (heightMode == MeasureSpec.UNSPECIFIED) {
             width = widthSize;
         }
-        setMeasuredDimension(width, width);
+        
+        //决定当前View的大小
+        setMeasuredDimension(width-100, width-100);
     }
 
     @Override
