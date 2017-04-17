@@ -29,6 +29,9 @@ public class SettingPager extends BasePager {
 	    view.setTextSize(22);
 	    view.setGravity(Gravity.CENTER);
 	    
+	    //先清空布局再添加,避免切换选项卡的时候页面布局重复加载的问题
+	  	flContent.removeAllViews();
+	    
 	    //动态添加布局
 	    flContent.addView(view);
 	    

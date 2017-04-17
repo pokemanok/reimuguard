@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.base.BasePager;
 import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
-import com.pokeman.reimuguard.activity.base.implement.HomePager;
+import com.pokeman.reimuguard.activity.base.implement.InfoPager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;
 import com.pokeman.reimuguard.activity.base.implement.TheftProofPager;
@@ -39,6 +39,8 @@ public class ContentFragment extends BaseFragment {
 	public View initView() {
 		View view = View.inflate(mActivity, R.layout.fragment_content, null);
 		mViewPager = (NoScrollViewPager) view.findViewById(R.id.vp_content);
+		//设置缓存页数的数量
+		mViewPager.setOffscreenPageLimit(4);
 		rgGroup = (RadioGroup) view.findViewById(R.id.rg_group);
 		return view;
 	}
@@ -48,7 +50,7 @@ public class ContentFragment extends BaseFragment {
 		mPagers = new ArrayList<BasePager>();
 
 		// 添加标签页
-		mPagers.add(new HomePager(mActivity));
+		mPagers.add(new InfoPager(mActivity));
 		mPagers.add(new TheftProofPager(mActivity));
 		mPagers.add(new ProcessManagerPager(mActivity));
 		mPagers.add(new AntiVirusPager(mActivity));
@@ -94,6 +96,7 @@ public class ContentFragment extends BaseFragment {
 			
 			@Override
 			public void onPageSelected(int position) {
+				
 				if(position==0 || position==mPagers.size()-1){
 					//首页和设置页禁用侧边栏
 					setSlidingMenuEnable(false);

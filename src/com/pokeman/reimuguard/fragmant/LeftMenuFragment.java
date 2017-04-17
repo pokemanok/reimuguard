@@ -10,7 +10,7 @@ import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
 import com.pokeman.reimuguard.activity.base.BasePager;
 import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
-import com.pokeman.reimuguard.activity.base.implement.HomePager;
+import com.pokeman.reimuguard.activity.base.implement.InfoPager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;
 import com.pokeman.reimuguard.activity.base.implement.TheftProofPager;

@@ -32,23 +32,26 @@ import com.pokeman.reimuguard.view.SelfStatistics;
  * @author pokeman
  * 
  */
-public class HomePager extends BasePager {
+public class InfoPager extends BasePager {
 
 	private View mview;
 	private SelfStatistics selfStatistics;
 	private ListView mlistView;
 	float Space[] = new float[5];
 	
-	public HomePager(Activity activity) {
+	public InfoPager(Activity activity) {
 		super(activity);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void initData() {
-		System.out.println("首页初始化");
+		System.out.println("信息初始化");
 
 		mview = View.inflate(mActivity, R.layout.pager_home, null);
+		
+		//先清空布局再添加,避免切换选项卡的时候页面布局重复加载的问题
+		flContent.removeAllViews();
 
 		Space = DeviceInfo.getSpace(mActivity);
 
@@ -59,12 +62,14 @@ public class HomePager extends BasePager {
 		
 		selfStatistics.setDatas(datas);
 		selfStatistics.startDraw();
+		
+		
 
 		// 动态添加布局
 		flContent.addView(mview);
 
 		// 设置标题
-		tvTitle.setText("首页");
+		tvTitle.setText("设备信息");
 
 		// 隐藏菜单按钮
 		btnMenu.setVisibility(View.GONE);
