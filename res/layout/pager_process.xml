@@ -62,12 +62,5 @@
 	         android:textSize="14sp"
 	        android:layout_weight="1"
 	    	android:layout_height="wrap_content"/>
-	    <Button
-	        android:layout_width="0dp"
-	        android:text="设置"
-	        android:id="@+id/bt_setting"
-	        android:textSize="14sp"
-	        android:layout_weight="1"
-	    	android:layout_height="wrap_content"/>
 	</LinearLayout>
 </LinearLayout>

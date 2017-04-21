@@ -71,9 +71,6 @@ public class InfoPager extends BasePager {
 		// 设置标题
 		tvTitle.setText("设备信息");
 
-		// 隐藏菜单按钮
-		btnMenu.setVisibility(View.GONE);
-
 		Button button = (Button) mview.findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {
 

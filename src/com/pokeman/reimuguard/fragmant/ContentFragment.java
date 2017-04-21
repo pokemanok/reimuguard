@@ -2,13 +2,15 @@ package com.pokeman.reimuguard.fragmant;
 
 import java.util.ArrayList;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
+import com.pokeman.reimuguard.activity.MainActivity;
 import com.pokeman.reimuguard.activity.base.BasePager;
 import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
 import com.pokeman.reimuguard.activity.base.implement.InfoPager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;
-import com.pokeman.reimuguard.activity.base.implement.TheftProofPager;
+import com.pokeman.reimuguard.activity.base.implement.AppLockPager;
 import com.pokeman.reimuguard.view.NoScrollViewPager;
 
 import android.R.raw;
@@ -28,7 +30,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
  */
 public class ContentFragment extends BaseFragment {
 
-	private NoScrollViewPager mViewPager;
+	public NoScrollViewPager mViewPager;
 	
 	private RadioGroup rgGroup;
 
@@ -51,9 +53,9 @@ public class ContentFragment extends BaseFragment {
 
 		// 添加标签页
 		mPagers.add(new InfoPager(mActivity));
-		mPagers.add(new TheftProofPager(mActivity));
-		mPagers.add(new ProcessManagerPager(mActivity));
 		mPagers.add(new AntiVirusPager(mActivity));
+		mPagers.add(new ProcessManagerPager(mActivity));
+		mPagers.add(new AppLockPager(mActivity));
 		mPagers.add(new SettingPager(mActivity));
 		
 
@@ -65,12 +67,12 @@ public class ContentFragment extends BaseFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				switch(checkedId){
-				case R.id.rb_home:
+				case R.id.rb_device:
 					// 首页
 					// mViewPager.setCurrentItem(0);
 					mViewPager.setCurrentItem(0, false);// 参2:表示是否具有滑动动画
 					break;
-				case R.id.rb_theftproof:
+				case R.id.rb_antivirus:
 					// 防盗
 					mViewPager.setCurrentItem(1, false);
 					break;
@@ -78,7 +80,7 @@ public class ContentFragment extends BaseFragment {
 					// 进程管理
 					mViewPager.setCurrentItem(2, false);
 					break;
-				case R.id.rb_blacklist:
+				case R.id.rb_theftproof:
 					// 黑名单
 					mViewPager.setCurrentItem(3, false);
 					break;
@@ -97,13 +99,6 @@ public class ContentFragment extends BaseFragment {
 			@Override
 			public void onPageSelected(int position) {
 				
-				if(position==0 || position==mPagers.size()-1){
-					//首页和设置页禁用侧边栏
-					setSlidingMenuEnable(false);
-				}else{
-					setSlidingMenuEnable(true);
-				}
-				
 			}
 			
 			@Override
@@ -121,12 +116,6 @@ public class ContentFragment extends BaseFragment {
 
 	}
     
-	//开启或禁用侧边栏
-	protected void setSlidingMenuEnable(boolean anable) {
-		//获取侧边栏对象
-		
-	}
-
 	// 继承ViewPager提供的适配器
 	class ContentAdapter extends PagerAdapter {
 
@@ -164,6 +153,13 @@ public class ContentFragment extends BaseFragment {
 			container.removeView((View) object);
 		}
 
+	}
+    
+	//通过leftfragment改变展示页
+	public void setpager(int position) {
+		
+		System.out.println("上天吗");
+		mViewPager.setCurrentItem(position);
 	}
 
 }

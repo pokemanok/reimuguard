@@ -42,7 +42,7 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 	private View mview;
 	private TextView tv_process_count,tv_memory_info,tv_des;
 	private ListView lv_process_list;
-	private Button bt_select_all,bt_select_reverse,bt_clear,bt_setting;
+	private Button bt_select_all,bt_select_reverse,bt_clear;
 	private int mProcessCount;
 	private List<ProcessInfo> mProcessInfoList;
 	
@@ -73,9 +73,6 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 	    
 	    //设置标题
 	    tvTitle.setText("进程管理");
-	    
-	    //隐藏菜单按钮
-	    btnMenu.setVisibility(View.GONE);
 	    
 	    initUI();
 		initTitleData();
@@ -253,12 +250,12 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 		bt_select_all = (Button) mview.findViewById(R.id.bt_select_all);
 		bt_select_reverse = (Button) mview.findViewById(R.id.bt_select_reverse);
 		bt_clear = (Button)  mview.findViewById(R.id.bt_clear);
-		bt_setting = (Button) mview.findViewById(R.id.bt_setting);
+		
 		
 		bt_select_all.setOnClickListener(this);
 		bt_select_reverse.setOnClickListener(this);
 		bt_clear.setOnClickListener(this);
-		bt_setting.setOnClickListener(this);
+		
 		
 		lv_process_list.setOnScrollListener(new OnScrollListener() {
 			@Override

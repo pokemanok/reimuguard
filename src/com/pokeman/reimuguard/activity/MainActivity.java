@@ -21,8 +21,8 @@ import android.util.DisplayMetrics;
 public class MainActivity extends SlidingFragmentActivity {
 	
 
-	private static final String TAG_LEFT_MENU = null;
-	private static final String TAG_CONTENT = null;
+	private static final String TAG_LEFT_MENU = "TAG_LEFT_MENU";
+	private static final String TAG_CONTENT = "TAG_CONTENT";;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
@@ -13,14 +14,17 @@ import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
 import com.pokeman.reimuguard.activity.base.implement.InfoPager;
 import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.activity.base.implement.SettingPager;
-import com.pokeman.reimuguard.activity.base.implement.TheftProofPager;
+import com.pokeman.reimuguard.activity.base.implement.AppLockPager;
 import com.pokeman.reimuguard.view.NoScrollViewPager;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.ToggleButton;
 
@@ -42,7 +46,7 @@ public class LeftMenuFragment extends BaseFragment {
 	private ArrayList<BasePager> mPagers;
 
 	// listview的数据
-	private String[] itemText = { "首页", "进程管理", "黑名单", "设置", "防盗" };
+	private String[] itemText = { "设备信息", "进程管理", "黑名单", "设置", "防盗" };
 
 	private int[] itemIcon = { R.drawable.item_icon_0, R.drawable.item_icon_1,
 			R.drawable.item_icon_2, R.drawable.item_icon_3,
@@ -82,7 +86,7 @@ public class LeftMenuFragment extends BaseFragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				getPosition(position);
+				setPosition(position);
 				
 				// 收起侧边栏
 				toggle();
@@ -92,9 +96,14 @@ public class LeftMenuFragment extends BaseFragment {
 	} 
     
 	//获取点击位置
-	protected int getPosition(int position) {
+	protected void setPosition(int position) {
+		// 获取新闻中心的对象
+		MainActivity mainUI = (MainActivity) mActivity;
+		// 获取ContentFragment
+		ContentFragment fragment = mainUI.getContentFragment();
 		
-	   return position;
+		fragment.setpager(position);
+		
 	}
 
 	// 控制侧边栏开关

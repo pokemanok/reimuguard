@@ -111,10 +111,7 @@ public class AntiVirusPager extends BasePager {
 	    
 	    //设置标题
 	    tvTitle.setText("手机杀毒");
-	    
-	    //隐藏菜单按钮
-	    btnMenu.setVisibility(View.GONE);
-	    
+    
 	    iv_scanning = (ImageView) mview.findViewById(R.id.iv_scanning);
 		tv_name = (TextView) mview.findViewById(R.id.tv_name);
 		pb_bar = (ProgressBar) mview.findViewById(R.id.pb_bar);
