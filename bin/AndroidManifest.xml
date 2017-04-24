@@ -11,6 +11,15 @@
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
      <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
      <uses-permission android:name="android.permission.GET_TASKS" />
+     <uses-permission android:name="android.permission.SEND_SMS" />
+     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+     <!-- //获取准确GPS坐标的权限 -->
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+     <!-- //允许模拟器模拟位置坐标的权限 -->
+     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> 
+     <!-- //获取粗略坐标的权限(网络定位时使用) -->
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
+	 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,11 +35,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity android:name="com.pokeman.reimuguard.activity.MainActivity"></activity>
         <activity android:name="com.pokeman.reimuguard.info.DeviceInfo"></activity>
         <activity android:name="com.pokeman.reimuguard.utils.EnterPsd"></activity>
-        <service android:name="com.pokeman.reimuguard.utils.MarisaWidgets"/>
+        
+        <receiver android:name="com.pokeman.reimuguard.receiver.SmsReceiver" >
+            <intent-filter>
+
+                <!-- 为了去关联系统短信的广播对应过滤条件,先将编译版本改为4.1.2 -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        
+        <service android:name="com.pokeman.reimuguard.service.MarisaWidgets"/>
         <service android:name="com.pokeman.reimuguard.service.WatchDogService"/>
+        <service android:name="com.pokeman.reimuguard.service.LocationService"/>
+        
          <!-- 拦截界面要在一个单独的任务栈中 -->
         <!-- 不需要去显示手机卫士的图标,true不要显示最近的图标,false显示最近开启应用的图标 -->
         <activity

@@ -36,6 +36,7 @@ public class EnterPsd extends Activity {
 		initData();
 	}
 
+	@SuppressWarnings("deprecation")
 	private void initData() {
 		//通过传递过来的包名获取拦截应用的图标以及名称
 		PackageManager pm = getPackageManager();

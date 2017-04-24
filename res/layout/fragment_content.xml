@@ -39,7 +39,7 @@
           android:text="进程管理"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
-          android:id="@+id/rb_setting"
+          android:id="@+id/rb_applock"
           android:drawableTop="@drawable/tab_setting_selector"
           android:text="设置"/>
       <RadioButton

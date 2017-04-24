@@ -9,12 +9,12 @@ import java.util.Map;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
-import com.pokeman.reimuguard.activity.base.BasePager;
-import com.pokeman.reimuguard.activity.base.implement.AntiVirusPager;
-import com.pokeman.reimuguard.activity.base.implement.InfoPager;
-import com.pokeman.reimuguard.activity.base.implement.ProcessManagerPager;
-import com.pokeman.reimuguard.activity.base.implement.SettingPager;
-import com.pokeman.reimuguard.activity.base.implement.AppLockPager;
+import com.pokeman.reimuguard.base.BasePager;
+import com.pokeman.reimuguard.base.implement.AntiVirusPager;
+import com.pokeman.reimuguard.base.implement.AppLockPager;
+import com.pokeman.reimuguard.base.implement.InfoPager;
+import com.pokeman.reimuguard.base.implement.LocationPager;
+import com.pokeman.reimuguard.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.view.NoScrollViewPager;
 
 import android.app.FragmentManager;
