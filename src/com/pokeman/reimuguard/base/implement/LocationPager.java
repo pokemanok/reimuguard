@@ -46,7 +46,7 @@ public class LocationPager extends BasePager {
 	    flContent.addView(mview);
 	    
 	    //设置标题
-	    tvTitle.setText("定位追踪");
+	    tvTitle.setText("远程定位");
 	    
 	  //显示电话号码的输入框
 	  et_phone_number = (EditText) mview.findViewById(R.id.et_phone_number);

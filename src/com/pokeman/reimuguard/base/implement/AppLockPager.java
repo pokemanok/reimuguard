@@ -70,7 +70,7 @@ public class AppLockPager extends BasePager {
 	    flContent.addView(mview);
 	    
 	    //防盗页面
-	    tvTitle.setText("防盗页面");
+	    tvTitle.setText("应用锁");
 	    
 	    initUI();
 		initList();

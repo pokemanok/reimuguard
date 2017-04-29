@@ -41,12 +41,12 @@
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_applock"
           android:drawableTop="@drawable/tab_setting_selector"
-          android:text="设置"/>
+          android:text="应用锁"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_theftproof"
           android:drawableTop="@drawable/tab_theftproof_selector"
-          android:text="防盗"/>
+          android:text="远程定位"/>
 
   </RadioGroup>
 

@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         
         //开启桌面挂件
-       // startService(new Intent(getApplicationContext(), MarisaWidgets.class));
+        startService(new Intent(getApplicationContext(), MarisaWidgets.class));
         
         //初始化splash界面动画
         initAnimation();
