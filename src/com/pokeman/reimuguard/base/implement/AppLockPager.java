@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -14,6 +17,7 @@ import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,13 +26,29 @@ import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.base.BasePager;
 import com.pokeman.reimuguard.dao.AppLockDao;
 import com.pokeman.reimuguard.info.AppInfo;
-import com.pokeman.reimuguard.service.WatchDogService;
+import com.pokeman.reimuguard.service.LockAppService;
 import com.pokeman.reimuguard.utils.AppInfoProvider;
+import com.pokeman.reimuguard.utils.ConstantValue;
+import com.pokeman.reimuguard.utils.Md5Util;
+import com.pokeman.reimuguard.utils.SpUtil;
+import com.pokeman.reimuguard.utils.ToastUtil;
 
 
 
 /**
  * 防盗页面
+ * @author pokeman
+ *
+ */
+/**
+ * @author pokeman
+ *
+ */
+/**
+ * @author pokeman
+ *
+ */
+/**
  * @author pokeman
  *
  */
@@ -75,12 +95,82 @@ public class AppLockPager extends BasePager {
 	    initUI();
 		initList();
 		initAnimation();
+		showDialog();
 		
 		//开启服务
-		mActivity.startService(new Intent(mActivity, WatchDogService.class));
+		mActivity.startService(new Intent(mActivity, LockAppService.class));
 
 	}
+
 	
+	/**
+	 * 判断是否已设置安全密码
+	 */
+	protected void showDialog() {
+		//判断本地是否有存储密码(sp	字符串)
+		String psd = SpUtil.getString(mActivity, ConstantValue.MOBILE_SAFE_PSD, "");
+		if(TextUtils.isEmpty(psd)){
+			//1,初始设置密码对话框
+			showSetPsdDialog();
+		}
+	}
+	
+	/**
+	 * 设置密码
+	 */
+	private void showSetPsdDialog() {
+		//因为需要去自己定义对话框的展示样式,所以需要调用dialog.setView(view);
+				//view是由自己编写的xml转换成的view对象xml----->view
+				Builder builder = new AlertDialog.Builder(mActivity);
+				final AlertDialog dialog = builder.create();
+				
+				final View view = View.inflate(mActivity, R.layout.dialog_set_psd, null);
+				//让对话框显示一个自己定义的对话框界面效果
+//				dialog.setView(view);
+				
+				//为了兼容低版本,给对话框设置布局的时候,让其没有内边距(android系统默认提供出来的)
+				dialog.setView(view, 0, 0, 0, 0);
+				dialog.show();
+				
+				Button bt_submit = (Button) view.findViewById(R.id.bt_submit_psd);
+				Button bt_cancel = (Button) view.findViewById(R.id.bt_cancel_psd);
+				
+				//按下确认按钮保存密码
+				bt_submit.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						EditText et_set_psd = (EditText) view.findViewById(R.id.et_set_psd);
+						EditText et_confirm_psd = (EditText)view.findViewById(R.id.et_confirm_psd);
+						
+						String psd = et_set_psd.getText().toString();
+						String confirmPsd = et_confirm_psd.getText().toString();
+						
+						if(!TextUtils.isEmpty(psd) && !TextUtils.isEmpty(confirmPsd)){
+							if(psd.equals(confirmPsd)){
+								
+								//跳转到新的界面以后需要去隐藏对话框
+								dialog.dismiss();
+								
+								//保存的时候对密码进行md5编码
+								SpUtil.putString(mActivity, 
+										ConstantValue.MOBILE_SAFE_PSD, Md5Util.encoder(confirmPsd));
+							}else{
+								ToastUtil.show(mActivity,"确认密码错误");
+							}
+						}else{
+							//提示用户密码输入有为空的情况
+							ToastUtil.show(mActivity, "请输入密码");
+						}
+					}
+				});
+				
+				bt_cancel.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+	}
 	
 	class MyAdapter extends BaseAdapter{
 		private boolean isLock;

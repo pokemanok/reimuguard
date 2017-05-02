@@ -52,7 +52,7 @@ public class MarisaWidgets extends Service {
         params.setTitle("Toast");
         
         //挂件初始位置
-        params.gravity = Gravity.LEFT;
+        params.gravity = Gravity.RIGHT;
         
         mWidgetsView = View.inflate(this, R.layout.widgets_view, null);
         mWM.addView(mWidgetsView, params);
@@ -83,7 +83,7 @@ public class MarisaWidgets extends Service {
 					moveX = (int) event.getRawX();
 					moveY = (int) event.getRawY();
 					
-					disX = moveX - startX;
+					disX = startX - moveX;
 					disY = moveY - startY;
 					
 					params.x = params.x+disX;

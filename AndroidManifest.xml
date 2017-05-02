@@ -38,7 +38,7 @@
         
         <activity android:name="com.pokeman.reimuguard.activity.MainActivity"></activity>
         <activity android:name="com.pokeman.reimuguard.info.DeviceInfo"></activity>
-        <activity android:name="com.pokeman.reimuguard.utils.EnterPsd"></activity>
+        <activity android:name="com.pokeman.reimuguard.activity.EnterPsdActivity"></activity>
         
         <receiver android:name="com.pokeman.reimuguard.receiver.SmsReceiver" >
             <intent-filter>
@@ -49,7 +49,7 @@
         </receiver>
         
         <service android:name="com.pokeman.reimuguard.service.MarisaWidgets"/>
-        <service android:name="com.pokeman.reimuguard.service.WatchDogService"/>
+        <service android:name="com.pokeman.reimuguard.service.LockAppService"/>
         <service android:name="com.pokeman.reimuguard.service.LocationService"/>
         
          <!-- 拦截界面要在一个单独的任务栈中 -->

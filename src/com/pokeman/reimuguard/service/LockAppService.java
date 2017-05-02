@@ -2,8 +2,8 @@ package com.pokeman.reimuguard.service;
 
 import java.util.List;
 
+import com.pokeman.reimuguard.activity.EnterPsdActivity;
 import com.pokeman.reimuguard.dao.AppLockDao;
-import com.pokeman.reimuguard.utils.EnterPsd;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
@@ -17,7 +17,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 
-public class WatchDogService extends Service {
+public class LockAppService extends Service {
 	private boolean isWatch;
 	private AppLockDao mDao;
 	private List<String> mPacknameList;
@@ -26,7 +26,7 @@ public class WatchDogService extends Service {
 	private MyContentObserver mContentObserver;
 	@Override
 	public void onCreate() {
-		//维护一个看门狗的死循环,让其时刻监测现在开启的应用,是否为程序锁中要去拦截的应用
+		//维护死循环,让其时刻监测现在开启的应用,是否为程序锁中要去拦截的应用
 		mDao = AppLockDao.getInstance(this);
 		isWatch = true;
 		watch();
@@ -93,7 +93,7 @@ public class WatchDogService extends Service {
 						//如果现在检测的程序,以及解锁了,则不需要去弹出拦截界面
 						if(!packagename.equals(mSkipPackagename)){
 							//7,弹出拦截界面
-							Intent intent = new Intent(getApplicationContext(),EnterPsd.class);
+							Intent intent = new Intent(getApplicationContext(),EnterPsdActivity.class);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							intent.putExtra("packagename", packagename);
 							startActivity(intent);

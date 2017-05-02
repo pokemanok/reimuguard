@@ -1,8 +1,11 @@
-package com.pokeman.reimuguard.utils;
-
+package com.pokeman.reimuguard.activity;
 
 
 import com.pokeman.reimuguard.R;
+import com.pokeman.reimuguard.utils.ConstantValue;
+import com.pokeman.reimuguard.utils.Md5Util;
+import com.pokeman.reimuguard.utils.SpUtil;
+import com.pokeman.reimuguard.utils.ToastUtil;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,7 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class EnterPsd extends Activity {
+public class EnterPsdActivity extends Activity {
 	private String packagename;
 	private TextView tv_app_name;
 	private ImageView iv_app_icon;
@@ -52,10 +55,13 @@ public class EnterPsd extends Activity {
 		bt_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String psd = et_psd.getText().toString();
+				String psd = et_psd.getText().toString().trim();
+				//获取保存的正确密码
+				String psd_right = SpUtil.getString(getApplicationContext(), ConstantValue.MOBILE_SAFE_PSD, "");
 				if(!TextUtils.isEmpty(psd)){
-					if(psd.equals("123")){
-						//解锁,进入应用,告知看门狗不要再去监听已经解锁的应用,发送广播
+					//将输入的密码经过md5编码后再进行比较
+					if(psd_right.equals(Md5Util.encoder(psd))){
+						//解锁,进入应用,告知服务不要再去监听已经解锁的应用,发送广播
 						Intent intent = new Intent("android.intent.action.SKIP");
 						intent.putExtra("packagename",packagename);
 						sendBroadcast(intent);
