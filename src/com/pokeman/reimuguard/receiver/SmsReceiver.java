@@ -23,7 +23,7 @@ public class SmsReceiver extends BroadcastReceiver {
 			String originatingAddress = sms.getOriginatingAddress(); 
 			String messageBody = sms.getMessageBody();
 
-			if (messageBody.contains("#*location*#")) {
+			if (messageBody.contains("location")) {
 				// 8,开启获取位置服务
 				context.startService(new Intent(context, LocationService.class));
 				System.out.println(originatingAddress);

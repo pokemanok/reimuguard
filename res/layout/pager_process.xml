@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/reimu_bg" >
 	<RelativeLayout 
 	    android:padding="5dp"
 	    android:layout_width="match_parent"
@@ -11,13 +12,15 @@
 	        android:id="@+id/tv_process_count"
 	        android:text="进程总数"
 	        android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"/>
+    		android:layout_height="wrap_content"
+    		android:textColor="#ADCFD6"/>
 	    <TextView
 	        android:id="@+id/tv_memory_info"
 	        android:text="剩余/总共"
 	        android:layout_alignParentRight="true"
 	        android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"/>
+    		android:layout_height="wrap_content"
+    		android:textColor="#ADCFD6"/>
 	</RelativeLayout>
 	<!-- ListView默认不占有高度 -->
 	<FrameLayout 
@@ -32,7 +35,6 @@
 		<TextView 
 	        android:background="#ccc"
 	        android:id="@+id/tv_des"
-	        android:textColor="#000"
 	        android:textSize="18sp"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"/>
@@ -40,25 +42,28 @@
 	<LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:orientation="horizontal">
+	    android:orientation="horizontal"
+	    android:padding="10dp">
 	    <Button
 	        android:id="@+id/bt_select_all"
 	        android:layout_width="0dp"
-	        android:text="全选"
+	        android:background="@drawable/reimu_button"
 	        android:textSize="14sp"
 	        android:layout_weight="1"
 	    	android:layout_height="wrap_content"/>
 	    <Button
 	        android:id="@+id/bt_select_reverse"
 	        android:layout_width="0dp"
-	        android:text="反选"
-	         android:textSize="14sp"
+	        android:layout_marginLeft="5dp"
+	        android:background="@drawable/marisa_button"
+	        android:textSize="14sp"
 	        android:layout_weight="1"
 	    	android:layout_height="wrap_content"/>
 	    <Button
 	        android:id="@+id/bt_clear"
 	        android:layout_width="0dp"
-	        android:text="一键清理"
+	        android:layout_marginLeft="5dp"
+	        android:background="@drawable/alice_button"
 	         android:textSize="14sp"
 	        android:layout_weight="1"
 	    	android:layout_height="wrap_content"/>

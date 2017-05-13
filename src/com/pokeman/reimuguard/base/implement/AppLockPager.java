@@ -225,9 +225,9 @@ public class AppLockPager extends BasePager {
 			holder.iv_icon.setBackgroundDrawable(appInfo.icon);
 			holder.tv_name.setText(appInfo.name);
 			if(isLock){
-				holder.iv_lock.setBackgroundResource(R.drawable.lock);
+				holder.iv_lock.setBackgroundResource(R.drawable.item_lock);
 			}else{
-				holder.iv_lock.setBackgroundResource(R.drawable.unlock);
+				holder.iv_lock.setBackgroundResource(R.drawable.item_unlock);
 			}
 			holder.iv_lock.setOnClickListener(new OnClickListener() {
 				@Override

@@ -10,23 +10,12 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
 import com.pokeman.reimuguard.base.BasePager;
-import com.pokeman.reimuguard.base.implement.AntiVirusPager;
-import com.pokeman.reimuguard.base.implement.AppLockPager;
-import com.pokeman.reimuguard.base.implement.InfoPager;
-import com.pokeman.reimuguard.base.implement.LocationPager;
-import com.pokeman.reimuguard.base.implement.ProcessManagerPager;
 import com.pokeman.reimuguard.view.NoScrollViewPager;
-
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.ListView;
-import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
-import android.widget.ToggleButton;
 
 /**
  * 左侧菜单fragment
@@ -46,11 +35,11 @@ public class LeftMenuFragment extends BaseFragment {
 	private ArrayList<BasePager> mPagers;
 
 	// listview的数据
-	private String[] itemText = { "设备信息", "进程管理", "黑名单", "设置", "防盗" };
+	private String[] itemText = { "设备", "杀毒", "进程", "应用锁", "定位" };
 
-	private int[] itemIcon = { R.drawable.item_icon_0, R.drawable.item_icon_1,
-			R.drawable.item_icon_2, R.drawable.item_icon_3,
-			R.drawable.item_icon_4 };
+	private int[] itemIcon = { R.drawable.device, R.drawable.antivirus,
+			R.drawable.process, R.drawable.lock,
+			R.drawable.location };
 
 	@Override
 	public View initView() {
@@ -78,7 +67,7 @@ public class LeftMenuFragment extends BaseFragment {
 				new int[] { R.id.itemText, R.id.itemIcon });
 
 		mlistView.setAdapter(simplead);
-
+		
 		// 给listview设置点击事件监听
 		mlistView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -86,7 +75,7 @@ public class LeftMenuFragment extends BaseFragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				setPosition(position);
+				getPosition(position);
 				
 				// 收起侧边栏
 				toggle();
@@ -96,7 +85,7 @@ public class LeftMenuFragment extends BaseFragment {
 	} 
     
 	//获取点击位置
-	protected void setPosition(int position) {
+	protected void getPosition(int position) {
 		// 获取新闻中心的对象
 		MainActivity mainUI = (MainActivity) mActivity;
 		// 获取ContentFragment

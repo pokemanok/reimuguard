@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/reimu_bg" >
 	<EditText 
 	    android:id="@+id/et_phone_number"
 	    android:hint="请输入电话号码"
@@ -19,5 +20,5 @@
 	    android:textColor="#000"
 	    android:textSize="18sp"
 	    android:layout_margin="5dp"
-	    android:text="使用说明：输入安全号码，此号码会作为定位信息的接收者,\n发送#*location*#至该手机,安全号码会收到gps定位信息"/>
+	    android:text="使用说明：输入安全号码，此号码会作为定位信息的接收者,\n发送location至该手机,安全号码会收到gps定位信息"/>
 </LinearLayout>

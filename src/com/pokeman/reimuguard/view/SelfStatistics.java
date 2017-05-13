@@ -86,7 +86,7 @@ public class SelfStatistics extends View {
                 //绘制扇形
                 canvas.drawArc(rectF, infos.getStartAngle(), infos.getEndAngle(), true, paint);
             }
-            //画最外层的圈
+            //画内层的圈
             paint.setColor(Color.WHITE);
             canvas.drawCircle(center, center, radius - 50, paint);
 

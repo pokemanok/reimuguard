@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="20dp" >
 
     <ImageView
         android:id="@+id/itemIcon"
@@ -11,9 +13,11 @@
         android:paddingLeft="10dp" />
 
     <TextView
+        android:paddingLeft="30dp"
         android:id="@+id/itemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:textColor="#ADCFD6"
+        android:textSize="20dp" />
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.os.Environment;
+import android.telephony.SmsManager;
 import android.text.format.Formatter;
 import android.view.Gravity;
 import android.view.View;
@@ -24,6 +25,8 @@ import android.widget.TextView;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.base.BasePager;
 import com.pokeman.reimuguard.info.DeviceInfo;
+import com.pokeman.reimuguard.utils.ConstantValue;
+import com.pokeman.reimuguard.utils.SpUtil;
 import com.pokeman.reimuguard.view.SelfStatistics;
 
 /**
@@ -48,7 +51,7 @@ public class InfoPager extends BasePager {
 	public void initData() {
 		System.out.println("信息初始化");
 
-		mview = View.inflate(mActivity, R.layout.pager_home, null);
+		mview = View.inflate(mActivity, R.layout.pager_device, null);
 		
 		//先清空布局再添加,避免切换选项卡的时候页面布局重复加载的问题
 		flContent.removeAllViews();
@@ -76,12 +79,19 @@ public class InfoPager extends BasePager {
 
 			@Override
 			public void onClick(View v) {
-
+				
+/*				// 4,发送短信(添加权限)
+				SmsManager sms = SmsManager.getDefault();
+				// 获取保存的电话号码
+				String phoneString = SpUtil.getString(mActivity,
+						ConstantValue.CONTACT_PHONE, "");
+				sms.sendTextMessage(phoneString, null, "longitude = " +",latitude = ", null, null);
+				System.out.println("发送短信测试");
+*/
 				// 跳转到设备信息界面
 				Activity currentActivity = (Activity) v.getContext();
 				Intent intent = new Intent(currentActivity, DeviceInfo.class);
 				currentActivity.startActivity(intent);
-
 			}
 		});
 

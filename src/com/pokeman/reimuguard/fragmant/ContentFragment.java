@@ -158,7 +158,7 @@ public class ContentFragment extends BaseFragment {
 	//通过leftfragment改变展示页
 	public void setpager(int position) {
 		
-		System.out.println("上天吗");
+		//System.out.println("标签页改变测试");
 		mViewPager.setCurrentItem(position);
 	}
 

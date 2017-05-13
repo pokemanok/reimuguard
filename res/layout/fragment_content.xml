@@ -23,30 +23,29 @@
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_device"
-          android:drawableTop="@drawable/tab_home_selector"
+          android:drawableTop="@drawable/tab_device_selector"
           android:checked="true"
           android:text="设备"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_antivirus"
-          
-          android:drawableTop="@drawable/tab_blacklist_selector"
+          android:drawableTop="@drawable/tab_antivirus_selector"
           android:text="杀毒"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_process"
           android:drawableTop="@drawable/tab_process_selector"
-          android:text="进程管理"/>
+          android:text="进程"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_applock"
-          android:drawableTop="@drawable/tab_setting_selector"
+          android:drawableTop="@drawable/tab_applock_selector"
           android:text="应用锁"/>
       <RadioButton
           style="@style/Bottom_Tab_Style"
           android:id="@+id/rb_theftproof"
-          android:drawableTop="@drawable/tab_theftproof_selector"
-          android:text="远程定位"/>
+          android:drawableTop="@drawable/tab_location_selector"
+          android:text="定位"/>
 
   </RadioGroup>
 

@@ -8,6 +8,7 @@
         android:layout_height="45dp"/>
     <TextView 
         android:id="@+id/tv_name"
+        android:textColor="#ADCFD6"
         android:text="应用名称"
         android:textSize="18sp"
         android:layout_centerVertical="true"

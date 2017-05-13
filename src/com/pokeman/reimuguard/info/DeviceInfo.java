@@ -74,7 +74,6 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
         sb.append("GPU制造商:").append( gl.glGetString(GL10.GL_VENDOR)).append("\n");
         sb.append("OpenGL版本:").append(configurationInfo.getGlEsVersion()).append("\n");
         sb.append("OpenGL ES版本:").append(gl.glGetString(GL10.GL_VERSION)).append("\n");
-        //分辨率，内存大小
         //sb.append("EXTENSIONS").append(gl.glGetString(GL10.GL_EXTENSIONS));
 
         runOnUiThread(new Runnable() {

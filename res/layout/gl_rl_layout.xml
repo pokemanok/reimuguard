@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/gl_rl_layout" >
+    android:id="@+id/gl_rl_layout"
+    android:background="@drawable/reimu_bg" >
 
     <TextView
         android:id="@+id/textView1"
@@ -10,8 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="69dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="24dp"
-        android:text="TextView" />
-
+        android:text="TextView" 
+        android:lineSpacingExtra="10dp"
+        android:textColor="#ADCFD6"
+        android:textSize="18sp" />
+    
 </RelativeLayout>

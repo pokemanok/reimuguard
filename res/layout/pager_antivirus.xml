@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/reimu_bg"
+     >
    <LinearLayout 
 	    android:orientation="horizontal"
 	    android:layout_width="match_parent"
@@ -21,7 +23,8 @@
 	            android:id="@+id/tv_name"
 	            android:text="触摸萃香开始扫描"
 	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"/>
+	            android:layout_height="wrap_content"
+	            android:textColor="#ADCFD6"/>
 	        <!-- 自定义进度条图片(三种类型) -->
 	        <ProgressBar 
 	            android:id="@+id/pb_bar"

@@ -28,7 +28,9 @@ public class LocationService extends Service {
 		String bestProvider = lm.getBestProvider(criteria, true);
 		// 3,在一定时间间隔,移动一定距离后获取经纬度坐标
 		MyLocationListener myLocationListener = new MyLocationListener();
-		lm.requestLocationUpdates(bestProvider, 0, 0, myLocationListener);
+		
+		//设置每秒发送一次
+		lm.requestLocationUpdates(bestProvider, 1000, 0, myLocationListener);
 
         System.out.println("service运行");
 	}
@@ -49,7 +51,7 @@ public class LocationService extends Service {
 					ConstantValue.CONTACT_PHONE, "");
 			sms.sendTextMessage(phoneString, null, "longitude = " + longitude
 					+ ",latitude = " + latitude, null, null);
-			System.out.println("service运行");
+			System.out.println("onLocationChanged触发测试");
 		}
 
 		@Override
