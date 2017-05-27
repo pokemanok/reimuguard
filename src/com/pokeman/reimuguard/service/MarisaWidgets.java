@@ -56,7 +56,7 @@ public class MarisaWidgets extends Service {
         
         mWidgetsView = View.inflate(this, R.layout.widgets_view, null);
         mWM.addView(mWidgetsView, params);
-        Log.d("nimabi", "骂了隔壁？");
+        Log.d("logtest", "wtf???");
         
         ImageView iv_widgets = (ImageView) mWidgetsView.findViewById(R.id.iv_widgets);
         iv_widgets.setOnTouchListener(new OnTouchListener() {

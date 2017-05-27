@@ -171,10 +171,15 @@ public class AntiVirusPager extends BasePager {
 						scanInfo.isVirus = false;
 					}
 					//维护对象的包名和应用名称
+					
 					scanInfo.packageName = packageInfo.packageName;
 					scanInfo.name = packageInfo.applicationInfo.loadLabel(pm).toString();
 					scanInfoList.add(scanInfo);
 					
+					//输出包名和md5码用于测试
+					System.out.println("包名"+packageInfo.packageName);
+					System.out.println("MD5"+Md5Util.encoder(str));
+					System.out.println("-----------------------------------");
 					//7.在扫描的过程中更新进度条
 					index++;
 					pb_bar.setProgress(index);

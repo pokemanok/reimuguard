@@ -11,14 +11,15 @@
 	    android:layout_height="wrap_content"/>
 	<Button 
 	    android:id="@+id/bt_save_number"
-	    android:text="保存号码"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"/>
+	    android:background="@drawable/button_save"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal"/>
 	<TextView
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textColor="#000"
 	    android:textSize="18sp"
 	    android:layout_margin="5dp"
-	    android:text="使用说明：输入安全号码，此号码会作为定位信息的接收者,\n发送location至该手机,安全号码会收到gps定位信息"/>
+	    android:text="使用说明：输入安全号码，此号码会作为定位信息的接收者,发送location至该手机,安全号码会收到gps定位信息"/>
 </LinearLayout>

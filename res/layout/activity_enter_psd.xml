@@ -2,26 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/reimu_bg" >
     <TextView 
         android:id="@+id/tv_app_name"
         android:text="拦截应用的名称"
         android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"/>
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	android:textColor="#ADCFD6"/>
 	<ImageView
 	    android:id="@+id/iv_app_icon"
 	    android:background="@drawable/ic_launcher"
         android:layout_width="45dp"
-    	android:layout_height="45dp"/>
+    	android:layout_height="45dp"
+    	android:layout_gravity="center_horizontal"/>
 	<EditText 
 	    android:id="@+id/et_psd"
         android:hint="请输入解锁密码"
         android:inputType="textPassword"
         android:layout_width="match_parent"
-    	android:layout_height="wrap_content"/>
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"/>
 	 <Button 
         android:id="@+id/bt_submit"
-        android:text="提交"
+        android:background="@drawable/button_push"
         android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"/>
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"/>
 </LinearLayout>

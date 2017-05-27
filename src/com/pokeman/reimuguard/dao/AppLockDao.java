@@ -17,7 +17,7 @@ public class AppLockDao {
 	//1,私有化构造方法
 	private AppLockDao(Context context){
 		this.context = context;
-		//创建数据库已经其表机构
+		//创建数据库以及其表机构
 		appLockOpenHelper = new AppLockOpenHelper(context);
 	}
 	//2,声明一个当前类的对象

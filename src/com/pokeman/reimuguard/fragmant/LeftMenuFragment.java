@@ -49,7 +49,7 @@ public class LeftMenuFragment extends BaseFragment {
 	}
 
 	@Override
-	public void initDtata() {
+	public void initData() {
 		// 初始化ListView数据
 		List<Map<String, Object>> listItems = new ArrayList<Map<String, Object>>();
 
@@ -86,11 +86,11 @@ public class LeftMenuFragment extends BaseFragment {
     
 	//获取点击位置
 	protected void getPosition(int position) {
-		// 获取新闻中心的对象
+		// 获取Activity
 		MainActivity mainUI = (MainActivity) mActivity;
 		// 获取ContentFragment
 		ContentFragment fragment = mainUI.getContentFragment();
-		
+
 		fragment.setpager(position);
 		
 	}

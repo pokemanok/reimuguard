@@ -156,40 +156,4 @@ public class DeviceInfo extends Activity implements GLSurfaceView.Renderer{
   		return Space;		
   	}
   		
-  	/**
-  	 * 获得内存大小
-  	 * 
-  	 * @return 
-  	 */
-  	public static String getTotalMemory() {
-  		FileReader fr = null;
-  		BufferedReader br = null;
-  		String text;
-  		try {
-  			fr = new FileReader("/proc/meminfo");
-  			br = new BufferedReader(fr, 8);
-  			text = br.readLine();
-  			String[] array = text.split("\\s+");
-  			//转换为GB显示
-  			float memory = Float.valueOf(array[1]) / 1024 / 1024;
-  			//设置两位有效数字
-  			DecimalFormat decimalFormat = new DecimalFormat("######0.00");
-  			String p = decimalFormat.format(memory);
-  			return p;
-
-  		} catch (FileNotFoundException e) {
-  			e.printStackTrace();
-  		} catch (IOException e) {
-  			e.printStackTrace();
-  		} finally {
-  			try {
-  				fr.close();
-  				br.close();
-  			} catch (IOException e) {
-  				e.printStackTrace();
-  			}
-
-  		}
-  		return null;
-  	}
 }

@@ -32,13 +32,13 @@ public abstract class BaseFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		
 		//初始化数据
-		initDtata();
+		initData();
 	}
 	
 	//初始化布局，由子类实现
 	public abstract View initView();
 	
 	//初始化数据，由子类实现
-	public abstract void initDtata();
+	public abstract void initData();
 
 }

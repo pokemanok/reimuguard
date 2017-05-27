@@ -48,7 +48,7 @@ public class ContentFragment extends BaseFragment {
 	}
 
 	@Override
-	public void initDtata() {
+	public void initData() {
 		mPagers = new ArrayList<BasePager>();
 
 		// 添加标签页
