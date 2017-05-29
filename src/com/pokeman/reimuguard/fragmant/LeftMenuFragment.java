@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.pokeman.reimuguard.R;
 import com.pokeman.reimuguard.activity.MainActivity;
 import com.pokeman.reimuguard.base.BasePager;
+import com.pokeman.reimuguard.service.MarisaWidgets;
+import com.pokeman.reimuguard.utils.ServiceUtil;
 import com.pokeman.reimuguard.view.NoScrollViewPager;
+
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -35,11 +37,11 @@ public class LeftMenuFragment extends BaseFragment {
 	private ArrayList<BasePager> mPagers;
 
 	// listview的数据
-	private String[] itemText = { "设备", "杀毒", "进程", "应用锁", "定位" };
+	private String[] itemText = { "设备", "杀毒", "进程", "应用锁", "定位","挂件"};
 
 	private int[] itemIcon = { R.drawable.device, R.drawable.antivirus,
 			R.drawable.process, R.drawable.lock,
-			R.drawable.location };
+			R.drawable.location,R.drawable.widgets};
 
 	@Override
 	public View initView() {
@@ -74,7 +76,7 @@ public class LeftMenuFragment extends BaseFragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-
+				
 				getPosition(position);
 				
 				// 收起侧边栏
@@ -86,12 +88,27 @@ public class LeftMenuFragment extends BaseFragment {
     
 	//获取点击位置
 	protected void getPosition(int position) {
+		
+		//判断挂件服务是否开启
+		boolean isRunning = ServiceUtil.isRunning(mActivity, "com.pokeman.reimuguard.service.MarisaWidgets");
+		
 		// 获取Activity
 		MainActivity mainUI = (MainActivity) mActivity;
 		// 获取ContentFragment
 		ContentFragment fragment = mainUI.getContentFragment();
-
-		fragment.setpager(position);
+		//如果条目位置小于5则切换显示页面，大于5则控制挂件开启
+		if(position<5){
+			fragment.setpager(position);
+		}else{
+			if(isRunning){
+				//停止挂件服务
+				mActivity.stopService(new Intent(mActivity, MarisaWidgets.class));
+			}else{
+				//开启挂件服务
+			    mActivity.startService(new Intent(mActivity, MarisaWidgets.class));
+			}
+		}
+		
 		
 	}
 

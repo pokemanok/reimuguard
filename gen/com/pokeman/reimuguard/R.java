@@ -191,6 +191,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tab_right_default=0x7f020032;
         public static final int tab_right_pressed=0x7f020033;
         public static final int title_bg_reimu=0x7f020034;
+        public static final int widgets=0x7f020035;
     }
     public static final class id {
         public static final int action_settings=0x7f04003f;

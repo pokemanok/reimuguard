@@ -131,8 +131,6 @@ public class AntiVirusPager extends BasePager {
 
 	private void checkVirus() {
 		new Thread(){
-			
-
 			public void run() {
 				//获取数据库中所有的病毒的md5码
 				List<String> virusList = VirusDao.getVirusList();

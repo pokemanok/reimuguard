@@ -120,10 +120,14 @@ public class MarisaWidgets extends Service {
 		return null;
 	}
 	
+	
+	//服务结束时窗体对象移除视图
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
-	
+		if(mWM!=null && mWidgetsView!=null){
+			mWM.removeView(mWidgetsView);
+		}
 		super.onDestroy();
 	}
 

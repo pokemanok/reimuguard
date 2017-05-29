@@ -68,6 +68,7 @@ int drawable tab_process_selector 0x7f020031
 int drawable tab_right_default 0x7f020032
 int drawable tab_right_pressed 0x7f020033
 int drawable title_bg_reimu 0x7f020034
+int drawable widgets 0x7f020035
 int id action_settings 0x7f04003f
 int id bt_cancel_psd 0x7f040011
 int id bt_clear 0x7f04003b

@@ -61,7 +61,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		android.support.v4.app.FragmentTransaction transaction = fm.beginTransaction();
 		
 		
-		//用fragment替换帧布局
+		//用fragment替换帧布局,参数1 要被替换的布局 ，2 加入的新的碎片，3 碎片名的标记
 		transaction.replace(R.id.fl_left_menu, new LeftMenuFragment(),TAG_LEFT_MENU);
 		transaction.replace(R.id.fl_main, new ContentFragment(),TAG_CONTENT);
 		

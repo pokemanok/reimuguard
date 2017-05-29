@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         
         //开启桌面挂件
-        startService(new Intent(getApplicationContext(), MarisaWidgets.class));
+        //startService(new Intent(getApplicationContext(), MarisaWidgets.class));
         
         //初始化splash界面动画
         initAnimation();
@@ -57,7 +57,7 @@ public class SplashActivity extends Activity {
 	 * @param dbName	数据库名称
 	 */
 	private void initAntiVirusDB(String dbName) {
-		//1,在files文件夹下创建同名dbName数据库文件过程
+		//1,在files文件夹下创建同名dbName数据库文件过程，路径/data/data//files
 		File files = getFilesDir();
 		File file = new File(files, dbName);
 		if(file.exists()){
@@ -65,7 +65,7 @@ public class SplashActivity extends Activity {
 		}
 		InputStream stream = null;
 		FileOutputStream fos = null;
-		//2,输入流读取第三方资产目录下的文件
+		//2,输入流读取assets目录下的文件
 		try {
 			stream = getAssets().open(dbName);
 			//3,将读取的内容写入到指定文件夹的文件中去
@@ -73,7 +73,9 @@ public class SplashActivity extends Activity {
 			//4,每次的读取内容大小
 			byte[] bs = new byte[1024];
 			int temp = -1;
+			//判断是否成功读取
 			while( (temp = stream.read(bs))!=-1){
+				//参数1 要被写入的缓冲区， 参数2 开始位置， 参数3写入数量
 				fos.write(bs, 0, temp);
 			}
 		} catch (Exception e) {
