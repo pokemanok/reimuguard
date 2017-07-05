@@ -54,7 +54,7 @@
         <service android:name="com.pokeman.reimuguard.service.LocationService"/>
         
          <!-- 拦截界面要在一个单独的任务栈中 -->
-        <!-- 不需要去显示手机卫士的图标,true不要显示最近的图标,false显示最近开启应用的图标 -->
+        <!-- 不需要去显示本应用的图标,true不显示最近的图标,false显示最近开启应用的图标 -->
         <activity
             android:name="com.pokeman.utils.EnterPsd"
             android:excludeFromRecents="true"

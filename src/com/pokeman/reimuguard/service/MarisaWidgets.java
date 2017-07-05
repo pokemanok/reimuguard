@@ -124,7 +124,7 @@ public class MarisaWidgets extends Service {
 	//服务结束时窗体对象移除视图
 	@Override
 	public void onDestroy() {
-		// TODO Auto-generated method stub
+		//判断窗体对象和视图是否为空
 		if(mWM!=null && mWidgetsView!=null){
 			mWM.removeView(mWidgetsView);
 		}

@@ -40,7 +40,7 @@ public class InfoPager extends BasePager {
 	private View mview;
 	private SelfStatistics selfStatistics;
 	private ListView mlistView;
-	float Space[] = new float[5];
+	float Space[] = new float[6];
 	
 	public InfoPager(Activity activity) {
 		super(activity);
@@ -49,7 +49,7 @@ public class InfoPager extends BasePager {
 
 	@Override
 	public void initData() {
-		System.out.println("信息初始化");
+		//System.out.println("信息初始化");
 
 		mview = View.inflate(mActivity, R.layout.pager_device, null);
 		
@@ -60,8 +60,8 @@ public class InfoPager extends BasePager {
 
 		// 加入圆形统计图
 		selfStatistics = (SelfStatistics) mview.findViewById(R.id.progress);
-		// 0 SD卡剩余空间，1 内置存储剩余空间，2 用户应用占用空间，3 系统应用占用空间,4 其他文件占用空间
-		float datas[] = new float[] {Space[0], Space[1], Space[2], Space[3],Space[4]};
+		// 0 SD卡剩余空间，1 内置存储剩余空间，2 用户应用占用空间，3 系统应用占用空间,4 其他文件占用空间,5 总存储空间
+		float datas[] = new float[] {Space[0], Space[1], Space[2], Space[3],Space[4],Space[5]};
 		
 		selfStatistics.setDatas(datas);
 		selfStatistics.startDraw();

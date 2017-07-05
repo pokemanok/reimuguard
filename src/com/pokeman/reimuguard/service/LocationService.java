@@ -20,7 +20,7 @@ public class LocationService extends Service {
 		// 获取手机的经纬度坐标
 		// 1,获取位置管理者对象
 		LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-		// 2,以最优的方式获取经纬度坐标()
+		// 2,以最优的方式获取经纬度坐标(),criteria标准
 		Criteria criteria = new Criteria();
 		// 允许花费
 		criteria.setCostAllowed(true);

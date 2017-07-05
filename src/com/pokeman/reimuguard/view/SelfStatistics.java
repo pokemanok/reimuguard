@@ -120,11 +120,8 @@ public class SelfStatistics extends View {
     }
 
     private void drawTexts(Canvas canvas, int center) {
-        float total = 0;
-        for (int i = 0; i < datas.length; i++) {
-            total += datas[i];
-        }
-        String totalStr = total + "MB";
+    	//总存储空间
+        String totalStr = datas[5] + "MB";
         paint.setStrokeWidth(2);
         //设置进度扇形的样式
         paint.setStyle(Paint.Style.FILL);

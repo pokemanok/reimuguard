@@ -40,18 +40,6 @@ import com.pokeman.reimuguard.utils.ToastUtil;
  * @author pokeman
  *
  */
-/**
- * @author pokeman
- *
- */
-/**
- * @author pokeman
- *
- */
-/**
- * @author pokeman
- *
- */
 public class AppLockPager extends BasePager {
 
 	private View mview;
@@ -128,7 +116,7 @@ public class AppLockPager extends BasePager {
 				//让对话框显示一个自己定义的对话框界面效果
 //				dialog.setView(view);
 				
-				//为了兼容低版本,给对话框设置布局的时候,让其没有内边距(android系统默认提供出来的)
+				//为了兼容低版本,给对话框设置布局的时候,让其没有内边距
 				dialog.setView(view, 0, 0, 0, 0);
 				dialog.show();
 				
@@ -310,7 +298,7 @@ public class AppLockPager extends BasePager {
 				mLockList = new ArrayList<AppInfo>();
 				mUnLockList = new ArrayList<AppInfo>();
 				
-				//3.获取数据库中已加锁应用包名的的结合
+				//3.获取数据库中已加锁应用包名的集合
 				mDao = AppLockDao.getInstance(mActivity);
 				List<String> lockPackageList = mDao.findAll();
 				

@@ -15,8 +15,10 @@ public class VirusDao {
 	public static String path = "data/data/com.pokeman.reimuguard/files/antivirus.db";
 	//2,开启数据库,查询数据库中表对应的md5码
 	public static List<String> getVirusList(){
+		//CursorFactory 指定游标指向某行
 		SQLiteDatabase db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 		Cursor cursor = db.query("datable", new String[]{"md5"}, null, null, null, null, null);
+		//病毒集合
 		List<String> virusList = new ArrayList<String>();
 		while(cursor.moveToNext()){
 			virusList.add(cursor.getString(0));

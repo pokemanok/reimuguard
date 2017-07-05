@@ -100,6 +100,7 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 		//指定索引指向的条目类型,条目类型状态码指定(0(复用系统),1)
 		@Override
 		public int getItemViewType(int position) {
+			//mCustomerList用户应用长度+1为系统应用的描述条目
 			if(position == 0 || position == mCustomerList.size()+1){
 				//返回0,代表纯文本条目的状态码
 				return 0;
@@ -109,7 +110,7 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 			}
 		}
 		
-		//listView中添加两个描述条目
+		//总条目数，listView中添加两个描述条目
 		@Override
 		public int getCount() {
 		   return mCustomerList.size()+mSystemList.size()+2;
@@ -136,6 +137,7 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+			//判断条目类型是什么
 			int type = getItemViewType(position);
 			
 			if(type == 0){
@@ -310,7 +312,6 @@ public class ProcessManagerPager extends BasePager implements OnClickListener {
 				}
 			}
 		});
-		
 	}
 	
 	@Override

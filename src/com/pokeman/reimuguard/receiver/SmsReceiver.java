@@ -12,7 +12,7 @@ public class SmsReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
-		// 2,获取短信内容
+		// 2,获取短信内容,Protocol Data Unit
 		Object[] objects = (Object[]) intent.getExtras().get("pdus");
 		// 3,循环遍历短信过程
 		for (Object object : objects) {

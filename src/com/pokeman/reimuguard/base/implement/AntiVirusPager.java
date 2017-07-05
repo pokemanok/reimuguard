@@ -63,6 +63,7 @@ public class AntiVirusPager extends BasePager {
 					textView.setTextColor(Color.BLACK);
 					textView.setText("扫描安全:"+info.name);
 				}
+				//头部插入
 				ll_add_text.addView(textView,0);
 				break;
             case SCAN_FINSH:
@@ -143,7 +144,7 @@ public class AntiVirusPager extends BasePager {
 						PackageManager.GET_SIGNATURES + PackageManager.GET_UNINSTALLED_PACKAGES);
 				mVirusScanInfoList = new ArrayList<ScanInfo>();
 				//记录所有应用的集合
-				List<ScanInfo> scanInfoList = new ArrayList<ScanInfo>();
+				//List<ScanInfo> scanInfoList = new ArrayList<ScanInfo>();
 				
 				//设置进度条的最大值
 				pb_bar.setMax(packageInfoList.size());
@@ -168,16 +169,17 @@ public class AntiVirusPager extends BasePager {
 					}else {
 						scanInfo.isVirus = false;
 					}
-					//维护对象的包名和应用名称
 					
+					//维护对象的包名和应用名称
 					scanInfo.packageName = packageInfo.packageName;
 					scanInfo.name = packageInfo.applicationInfo.loadLabel(pm).toString();
-					scanInfoList.add(scanInfo);
+					//scanInfoList.add(scanInfo);
 					
-					//输出包名和md5码用于测试
+				/*	//输出包名和md5码用于测试
 					System.out.println("包名"+packageInfo.packageName);
 					System.out.println("MD5"+Md5Util.encoder(str));
-					System.out.println("-----------------------------------");
+					System.out.println("-----------------------------------");*/
+					
 					//7.在扫描的过程中更新进度条
 					index++;
 					pb_bar.setProgress(index);
@@ -208,6 +210,7 @@ public class AntiVirusPager extends BasePager {
 	class ScanInfo{
 		public boolean isVirus;
 		public String packageName;
+		//应用名
 		public String name;
 	}
 

@@ -11,8 +11,8 @@ public class Md5Util {
 	public static String encoder(String psd) {
 		try {
 			//加盐处理
-			psd = psd+"mobilesafe";
-			//1,指定加密算法类型
+			psd = psd+"pokeman";
+			//1,指定加密算法类型,MessageDigest 信息摘要
 			MessageDigest digest = MessageDigest.getInstance("MD5");
 			//2,将需要加密的字符串中转换成byte类型的数组,然后进行随机哈希过程
 			byte[] bs = digest.digest(psd.getBytes());
@@ -21,6 +21,7 @@ public class Md5Util {
 			//4,拼接字符串过程
 			StringBuffer stringBuffer = new StringBuffer();
 			for (byte b : bs) {
+				//& 位与
 				int i = b & 0xff;
 				//int类型的i需要转换成16机制字符
 				String hexString = Integer.toHexString(i);

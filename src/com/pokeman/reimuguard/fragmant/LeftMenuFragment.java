@@ -96,6 +96,7 @@ public class LeftMenuFragment extends BaseFragment {
 		MainActivity mainUI = (MainActivity) mActivity;
 		// 获取ContentFragment
 		ContentFragment fragment = mainUI.getContentFragment();
+		
 		//如果条目位置小于5则切换显示页面，大于5则控制挂件开启
 		if(position<5){
 			fragment.setpager(position);

@@ -41,6 +41,7 @@ public class AppLockDao {
 		
 		db.close();
 		
+		//通知所有注册在该Uri上的监听者
 		context.getContentResolver().notifyChange(Uri.parse("content://applock/change"), null);
 	}
 	//删除方法
